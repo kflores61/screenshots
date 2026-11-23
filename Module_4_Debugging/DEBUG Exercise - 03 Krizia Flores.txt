@@ -1,0 +1,49 @@
+Changes made
+
+
+I fixed the order of the modules, added the missing input and gross variable, and put quotes around ZZZZ.
+
+Corrected pseudocode
+
+start
+   Declarations
+      string name
+      string EOFNAME = "ZZZZ"
+   housekeeping()
+   while name <> EOFNAME
+      mainLoop()
+   endwhile
+   finish()
+stop
+
+housekeeping()
+   output "Enter first name or ", EOFNAME, " to quit"
+   input name
+return
+
+mainLoop()
+   Declarations
+      num hours
+      num rate
+      num DEDUCTION = 45
+      num gross
+      num net
+   output "Enter hours worked for ", name
+   input hours
+   output "Enter hourly rate for ", name
+   input rate
+   gross = hours * rate
+   net = gross - DEDUCTION
+   if net >= 0 then
+      output "Net pay for ", name, " is ", net
+   else
+      net = 0
+      output "Deductions not covered. Net is 0."
+   endif
+   output "Enter next name or ", EOFNAME, " to quit"
+   input name
+return
+
+finish()
+   output "End of job"
+return
