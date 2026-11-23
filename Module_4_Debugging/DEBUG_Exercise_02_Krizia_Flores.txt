@@ -1,0 +1,38 @@
+// DEBUG Exercise 02 - Krizia Flores
+// Display net pay for each employee after a standard $45 deduction.
+// Repeat until the user enters ZZZ. Gross pay of $45 covers the deduction.
+start
+   Declarations
+      string name
+      num hours
+      num rate
+      num DEDUCTION = 45
+      string EOFNAME = "ZZZ"
+      num gross
+      num net
+   output "Enter first name or ", EOFNAME, " to quit"
+   input name
+   while name <> EOFNAME
+      output "Enter hours worked for ", name
+      input hours
+      output "Enter hourly rate for ", name
+      input rate
+      gross = hours * rate
+      net = gross - DEDUCTION
+      if net >= 0 then
+         output "Net pay for ", name, " is ", net
+      else
+         net = 0
+         output "Deductions not covered. Net is 0."
+      endif
+      output "Enter next name or ", EOFNAME, " to quit"
+      input name
+   endwhile
+   output "End of job"
+stop
+
+// Tests: Ana, 10 hours, rate 10 -> gross 100, net 55.
+// Boundary: Ben, 3 hours, rate 15 -> gross 45, net 0, no error.
+// Below deduction: Cam, 2 hours, rate 20 -> gross 40, error, net 0.
+// Enter all three employees then ZZZ -> process each once and end.
+// Enter ZZZ first -> End of job without asking for hours or rate.

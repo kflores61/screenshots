@@ -1,0 +1,46 @@
+// DEBUG Exercise 04 - Krizia Flores
+// Compute home ownership costs for any number of users.
+// All costs entered for one user must cover the same time period.
+// The declared variables are shared by the main program and its modules.
+// A mortgage payment of 0 ends the program.
+start
+   Declarations
+      num mortgagePayment
+      num utilities
+      num taxes
+      num upkeep
+      num total
+   startUp()
+   while mortgagePayment <> 0
+      mainLoop()
+   endwhile
+   finishUp()
+stop
+
+startUp()
+   output "Enter your mortgage payment or 0 to quit"
+   input mortgagePayment
+return
+
+mainLoop()
+   output "Enter utilities"
+   input utilities
+   output "Enter taxes"
+   input taxes
+   output "Enter amount for upkeep"
+   input upkeep
+   total = mortgagePayment + utilities + taxes + upkeep
+   output "Total is ", total
+   output "Enter your mortgage payment or 0 to quit"
+   input mortgagePayment
+return
+
+finishUp()
+   output "End of program"
+return
+
+// Tests: mortgage 1000, utilities 200, taxes 150, upkeep 50 -> total 1400.
+// Next user: mortgage 800, utilities 100, taxes 75, upkeep 25 -> total 1000.
+// Decimal amounts: 1000.50, 200.25, 150, 49.25 -> total 1400.
+// Zero other costs: mortgage 900, utilities 0, taxes 0, upkeep 0 -> total 900.
+// Enter 0 after these users -> end; enter 0 first -> no costs requested.

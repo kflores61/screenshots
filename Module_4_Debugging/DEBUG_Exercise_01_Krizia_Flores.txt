@@ -1,0 +1,41 @@
+// DEBUG Exercise 01 - Krizia Flores
+
+Question: You have been tasked with reviewing and updating this program. What steps would you take to identify any issues in the code?
+Your Response:
+I would read through the code one line at a time and check the spelling, variable names, inputs, and calculations. Then I would test scores that should pass or fail, including an average of exactly 60. I would also enter 0 to make sure the program stops correctly.
+
+Question: What actions could the developer have taken to minimize the number of errors?
+Your Response:
+The developer could have used consistent variable names, proper indentation, and comments to explain the code. Testing small sections while writing the program could have helped catch mistakes early. Reviewing the average formula and making sure each input is collected would also have prevented errors.
+
+Debugging Exercise:
+
+// A student passes when the average of two tests is at least 60.
+// A first score of 0 ends the program, as required by this exercise.
+start
+   Declarations
+      num firstTest
+      num secondTest
+      num average
+      num PASSING = 60
+   output "Enter first score or 0 to quit"
+   input firstTest
+   while firstTest <> 0
+      output "Enter second score"
+      input secondTest
+      average = (firstTest + secondTest) / 2
+      output "Average is ", average
+      if average >= PASSING then
+         output "Pass"
+      else
+         output "Fail"
+      endif
+      output "Enter first score or 0 to quit"
+      input firstTest
+   endwhile
+stop
+
+// Tests: 100, 80 -> average 90, Pass; 50, 60 -> average 55, Fail.
+// Boundary: 50, 70 -> average 60, Pass; 59, 60 -> average 59.5, Fail.
+// Enter 0 first -> stop without asking for a second score.
+// Enter 100, 80, 50, 60, 0 -> process two students, then stop.
